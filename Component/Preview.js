@@ -4,15 +4,18 @@ import {Mail, Calendar, Linkedin,GitHub,PhoneCall,MapPin,Paperclip} from 'react-
 
 
 const Preview = forwardRef((props, ref) => {
+ // Destructure the props to extract sections, information, and activeColor
 
 // const information = props.information;
 // const sections = props.sections;
 // const activeColor = props.activeColor;
 
 const { sections, information, activeColor } = props;
-
+  //State to manage the layout columns
   const [columns,setColumns] = useState([[],[]]);
 
+  //Extracting information details
+  
   const info = {
     personalInfo: information[sections.personalInfo],
     workExp: information[sections.workExp],
@@ -21,7 +24,7 @@ const { sections, information, activeColor } = props;
     summary: information[sections.summary],
   }
 
-
+  // Function to format date
   const getFormattedDate = (value) => {
     if(!value) return ""
     const date = new Date(value)
@@ -29,7 +32,7 @@ const { sections, information, activeColor } = props;
   }
 
  
-  
+  //Effect to set the columns for layout
 
 
   useEffect(()=>{
@@ -51,14 +54,16 @@ const { sections, information, activeColor } = props;
 
 <div ref={ref} className="container5" >
  <div className="heading">
+    {/* Main heading with personal information */}
     <p className="heading1"><a href="" name="preview"></a>{info.personalInfo?.detail?.name}</p>
     <p className='subHeading' style={{ color: activeColor }}>{info.personalInfo?.detail?.title}</p>
     <div className="infocontainer">
+     {/* Additional personal info */}
     <p className="subHeading" style={{ color: activeColor }}>Age : <span>{info.personalInfo?.detail?.age}</span></p>
     <p className="subHeading" style={{ color: activeColor }}>DOB : <span>{getFormattedDate(info.personalInfo?.detail?.DOB)}</span></p>
     </div>
     <p className="subHeading" style={{ color: activeColor }}>Address : <span>{info.personalInfo?.detail?.address}</span></p>
-
+    {/* Links for contact info */}
     <div className="links">
     {info.personalInfo?.detail?.email ?
       <a href="" className="link"><Mail style={{ color: activeColor }}/>{info.personalInfo?.detail?.email}</a>
@@ -76,6 +81,7 @@ const { sections, information, activeColor } = props;
        
     </div>
     </div>
+    {/* Main content section */}
     <div className="main">
 
 
