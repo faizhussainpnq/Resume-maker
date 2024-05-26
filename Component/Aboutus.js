@@ -12,11 +12,15 @@ export default function Aboutus() {
   return (
     <>
       <div className="aboutus">
+    {/* Container for the image */}
         <div className="imgabout">
           <img src={about1Svg} className="image" alt="" />
         </div>
+     {/* Container for the About Us text */}
         <div className="about">
+           {/* Main heading with a styled span for the first letter */}
           <h1><span>A</span>bout</h1>
+          {/* Paragraph describing the purpose and mission of Resume Maker */}
           <p>Welcome to Resume maker, your go-to platform for creating professional resumes
            that stand out. Our mission is to empower individuals like you to craft compelling
            resumes that showcase your skills, experiences, and achievements effectively.
@@ -28,11 +32,16 @@ export default function Aboutus() {
             </p>
         </div>
       </div>
+       {/* Bottom section container */}
       <div className="bottom">
+       {/* Container for the contact information */}
       <div className="contact">
+       {/* Heading for social media connection */}
       <h3>Connect with us on social media</h3>
       </div> 
+        {/* Container for social media links */}
        <div className="social">
+         {/* Individual social media link containers with icons */}
        <div className="linked"><a href="https://www.linkedin.com/in/faiz-hussain-8747a4285/" target='blank'><Linkedin/></a></div>
        <div className="git"><a href="https://github.com/faizhussainpnq/portfolio" target='blank'><GitHub/></a></div>
        <div className="insta"><a href="https://www.instagram.com/faizbarkati/" target='blank'><Instagram/></a></div>
