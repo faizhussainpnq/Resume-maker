@@ -1,0 +1,52 @@
+.input{
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5vw;
+    color: white;
+}
+
+
+input{
+    border: 1px solid #cccccc;
+    outline: none;
+    padding: 0.4vw 0.5vw;
+    font-size: 1.4vw;
+    border-radius: 0.5vw;
+    box-shadow: 0 0 6px 0;
+    background-color: #ffb703;
+    background: linear-gradient(90deg,#ffb703,#eecb02,#ffb703);
+}
+
+/* input:hover{
+    border: 0.11vw solid #DC3545;
+} */
+
+input:focus{
+    border: 0.11vw solid #DC3545;
+}
+
+
+@media screen and (max-width: 600px){
+    input{
+        height: 5vw;
+        border: 1px solid #cccccc;
+        outline: none;
+        padding: 0.4vw 0.5vw;
+        font-size: 2vw;
+        border-radius: 0.5vw;
+        box-shadow: 0 0 6px 0;
+        /* background-color: #bab7ef; */
+    }
+
+    label{
+        font-weight: 500;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 2vw;
+    }
+}
+

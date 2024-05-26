@@ -1,0 +1,112 @@
+
+.container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* padding: 30px; */
+  gap: 30px;
+  /* background-color: #d5e5ff; */
+}
+
+.build{
+    color: rgb(1, 1, 51);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4vw;
+}
+
+.toolbar{
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.colors{
+    display: flex;
+    gap: 20px;
+    padding: 0 30px;
+}
+
+.colors .color{
+    height: 3vw;
+    width: 3vw;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.colors #activeColor{
+    border: 2px solid black;
+}
+
+.download {
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+    background: linear-gradient(135deg, #3B71CA, #4A90E2);
+    outline: none;
+    border: none;
+    font-weight: 500;
+    font-size: 1.5vw;
+    letter-spacing: 0.1vw;
+    display: inline-flex;
+    gap: 5px;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.download:hover {
+    background: linear-gradient(135deg, #023047, #0F3057);
+    transform: translateY(-2px);
+}
+
+.download:active {
+    background-color: #3B71CA; /* Change back to original color on click */
+    box-shadow: none; /* Remove shadow on click */
+}
+
+.download svg{
+    height: 2vw;
+    width: 2vw;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+}
+
+
+@media screen and (max-width:600px) {
+    .colors{
+        display: flex;
+        gap: 10px;
+        padding: 0 30px;
+    }
+    
+    .colors .color{
+        height: 6vw;
+        width: 6vw;
+        border-radius: 50%;
+    }
+
+    .download{
+        padding: 8px 16px;
+        border-radius: 0.5vw;
+        color: white;
+        background-color: #3B71CA;
+        outline: none;
+        border: none;
+        font-weight: 500;
+        font-size: 2.5vw;
+        letter-spacing: 0.1vw;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    }
+    
+    .download svg{
+        height: 2.5vw;
+        width: 2.5vw;
+    }
+}
