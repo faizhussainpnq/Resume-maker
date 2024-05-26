@@ -5,7 +5,7 @@ import RLetter from '../Component/RLetter.png';
 export default function Navbar() {
   return (
     <>
-
+{/* Navbar of Resume maker  */}
 <nav class="navbar bg-primary" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#"><img src={RLetter} alt="" style={{width:"40px",height:"40px"}} />Resume Genius</a>
