@@ -15,10 +15,12 @@ const information = props.information;
 
   const [sectionTitle,setSectionTitle] = useState(sections[Object.keys(sections)[0]]);
 
+  // Initializing active information based on the active section
   const [activeInformation,setActiveInformation] = useState(
     information[sections[Object.keys(sections)[0]]]
   );
- 
+
+  // State to manage personal information form data
   const [personalInfoData, setPersonalInfoData] = useState({
     name: activeInformation?.detail?.name || "",
     title: activeInformation?.detail?.title || "",
@@ -31,7 +33,7 @@ const information = props.information;
     address: activeInformation?.detail?.address || "",
 });
 
-
+// Handler to update work description points
 
 const handlePointUpdate = (value, index) => {
   const tempValues = { ...personalInfoData };
@@ -65,8 +67,7 @@ const handlePointUpdate = (value, index) => {
   //   summary: ""
   // });
 
-
-
+// Personal Info section JSX
 
   const personalInfo = (
    <div className="detail">
@@ -117,7 +118,7 @@ const handlePointUpdate = (value, index) => {
    </div>
   )
 
-  
+  // Work Experience section JSX
 
   let workExp = (
     <div className="detail">
@@ -160,6 +161,7 @@ const handlePointUpdate = (value, index) => {
     </div>
   )
 
+ // Education section JSX
   let education = (
     <div className="detail">
     <div className="row">
@@ -185,6 +187,7 @@ const handlePointUpdate = (value, index) => {
     </div>
   )
 
+// Skills section JSX
   let Skill = (
     <div className="detail">
     <div className="column">
@@ -208,6 +211,7 @@ const handlePointUpdate = (value, index) => {
     </div>
   )
 
+  // Summary section JSX
   let summary = (
     <div className="detail">
     <div className="row">
@@ -219,6 +223,7 @@ const handlePointUpdate = (value, index) => {
     </div>
   )
 
+// Next page button function
   const nextPage = () => {
     const keys = Object.keys(sections);
     const index = keys.indexOf(active);
@@ -226,7 +231,8 @@ const handlePointUpdate = (value, index) => {
       setActive(keys[index + 1]); // Move to the next page
     }
   };
-  
+
+//Previous Page button function
   const previousPage = () => {
     const keys = Object.keys(sections);
     const index = keys.indexOf(active);
@@ -235,6 +241,7 @@ const handlePointUpdate = (value, index) => {
     }
   };
 
+ //Page response function
   let generatedbody = () => {
     if (active === 'personalInfo') {
       return personalInfo;
@@ -248,7 +255,8 @@ const handlePointUpdate = (value, index) => {
       return summary;
     }
   }
-  
+
+  // Data Submit function
   const handleSubmission=()=>{
     switch(sections[active]){
       case sections.personalInfo:
@@ -321,23 +329,26 @@ const handlePointUpdate = (value, index) => {
     }
   }
 
- 
+  // Update form data when the active section changes
   useEffect(() => {
     const activeInfo = information[sections[active]];
     setActiveInformation(activeInfo);
     setSectionTitle(sections[active]);
     if (active !== 'skills'  && active !== 'workExp') {
+      // Initialize points as empty for non-skills and non-workExp sections
       setPersonalInfoData(prevData => ({
           ...prevData,
           points: ["", "", "", "", ""]
       }));
   } else {
-      // Setting points state for the skills section
+       // Set points for skills and work experience sections
       setPersonalInfoData(prevData => ({
           ...prevData,
           points: activeInfo?.detail?.points || ["", "", "", "", ""]
       }));
   }
+    
+    // Update form data based on active section details
     setPersonalInfoData(prevData => ({
       ...prevData,
       name: activeInfo?.detail?.name || "",
@@ -360,9 +371,7 @@ const handlePointUpdate = (value, index) => {
     }));
   }, [active]);
 
-
-  
-  
+   // Display success toast notification
   const saved = () => toast.success("Your details has been saved successfully", {
     position: "top-center",
     autoClose: 2000,
